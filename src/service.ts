@@ -14,7 +14,7 @@ export interface CreateServiceConfig extends AxiosRequestConfig {
 
 export function createService(config: CreateServiceConfig) {
   const { normalizer, formatter, method = 'get', url, ...otherConfig } = config;
-  return async (payload: unknown, requestConfig: AxiosRequestConfig) => {
+  return async (payload?: unknown, requestConfig?: AxiosRequestConfig) => {
     if (typeof normalizer === 'function') {
       payload = normalizer(payload);
     }

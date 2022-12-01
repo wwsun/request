@@ -12,15 +12,14 @@ export function createInstance(
   });
 
   // add interceptors & methods
-  // request.interceptors.response.use(
-  //   (response) => {
-  //     let data = response.data;
-  //     return response;
-  //   },
-  //   (error) => {
-  //     return Promise.reject(error);
-  //   }
-  // );
+  request.interceptors.response.use(
+    (response) => {
+      return response.data;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
 
   return request;
 }
